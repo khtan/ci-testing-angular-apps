@@ -5,7 +5,7 @@
 # Copy the unit tests from Chapter 3 to their appropriate
 # home, so that we can run these tests in CI.
 cp ../chapter03/contacts.component.spec.ts ../website/src/app/contacts
-cp ../chapter03/contacts-edit.component.spec.ts ../website/src/app/contacts/contact-edit
+cp ../chapter03/contact-edit.component.spec.ts ../website/src/app/contacts/contact-edit
 
 # Copy over the CI configuration
 cp karma-ci.conf.js ../website
