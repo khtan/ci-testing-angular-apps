@@ -13,8 +13,9 @@ module.exports = function (config) {
     ],
     reporters: ['junit'],
     junitReporter: {
+        useBrowserName: false,
         outputDir: 'karma-results',
-        outputFile: 'karma-results.xml'
+        outputFile: 'chapter11/karma-results.xml'
     },
     angularCli: {
       environment: 'dev',
@@ -22,6 +23,7 @@ module.exports = function (config) {
     port: 9876,
     logLevel: config.LOG_INFO,
     browsers: ['ChromeHeadless'],
+    // browsers: ['Chrome'],      
     autoWatch: false,
     singleRun: true
   });

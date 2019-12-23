@@ -3,10 +3,12 @@ jobs:
   build:
     docker:
       - image: circleci/node:8-browsers
+    environment:
+       IS_CIRCLE: true
     steps:
       - checkout
       # print out versions
-      - run: export IS_CIRCLE=true
+      # - run: export IS_CIRCLE=true # scoped to run, so this is useless
       - run: node --version
       - run: npm --version
       - run: yarn --version
