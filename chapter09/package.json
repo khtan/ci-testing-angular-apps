@@ -19,6 +19,7 @@
     "gulp": "^3.9.1",
     "gulp-clang-format": "^1.0.23",
     "jasmine-spec-reporter": "^4.1.1",
+    "jasmine-reporters": "^2.3.2",      
     "protractor": "^5.1.2",
     "ts-node": "^3.3.0",
     "typescript": "^2.5.3"

@@ -10,7 +10,10 @@ exports.config = {
     './e2e/**/*.e2e-spec.ts'
   ],
   capabilities: {
-    'browserName': 'chrome'
+    browserName: 'chrome',
+    chromeOptions: {
+        args: ['--no-sandbox', '--headless']
+    }
   },
   directConnect: true,
   baseUrl: 'https://testing-angular-applications.github.io',
@@ -25,7 +28,13 @@ exports.config = {
       project: 'e2e'
     });
   },
-  onPrepare() {
-    jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
+  onPrepare: () => {
+      let jasmineReporters = require('jasmine-reporters');
+      let junitReporter = new jasmineReporters.JUnitXmlReporter({
+        // setup the output path for the junit reports
+        savePath: 'protractor-results/ch09e2e/',
+        consolidateAll: true
+      });
+      jasmine.getEnv().addReporter(junitReporter);
   }
 };

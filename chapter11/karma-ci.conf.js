@@ -13,9 +13,9 @@ module.exports = function (config) {
     ],
     reporters: ['junit'],
     junitReporter: {
-        useBrowserName: false,
+        useBrowserName: false, // turn off using browser-os long name for folder
         outputDir: 'karma-results',
-        outputFile: 'chapter11/karma-results.xml'
+        outputFile: 'chapter11/karma-results.xml' // instead use chapter11 for CircleCI to pick up
     },
     angularCli: {
       environment: 'dev',
