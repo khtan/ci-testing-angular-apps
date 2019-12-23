@@ -28,6 +28,13 @@ exports.config = {
     if (process.env.IS_JENKINS) {
       let jasmineReporters = require('jasmine-reporters');
       let junitReporter = new jasmineReporters.JUnitXmlReporter({
+        savePath: 'output/',
+        consolidateAll: false
+      });
+      jasmine.getEnv().addReporter(junitReporter);
+    } else if (process.env.IS_CIRCLE) {
+      let jasmineReporters = require('jasmine-reporters');
+      let junitReporter = new jasmineReporters.JUnitXmlReporter({
         savePath: 'protractor-results/ch11e2e/',
         consolidateAll: true
       });
