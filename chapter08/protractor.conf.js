@@ -4,7 +4,7 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      args: ['--no-sandbox']
+        args: ['--no-sandbox', '--headless']
     }
   },
   directConnect: true,
@@ -14,7 +14,15 @@ exports.config = {
   specs: [
     './e2e/**/*.e2e-spec.ts'
   ],
-  beforeLaunch: function() {
+  onPrepare: () => {
+      let jasmineReporters = require('jasmine-reporters');
+      let junitReporter = new jasmineReporters.JUnitXmlReporter({
+        // setup the output path for the junit reports
+        savePath: 'protractor-results/ch08e2e/',
+        consolidateAll: true
+      });
+      jasmine.getEnv().addReporter(junitReporter);
+    
     require('ts-node').register({
       project: 'e2e'
     });

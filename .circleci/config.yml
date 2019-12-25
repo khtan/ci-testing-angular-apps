@@ -19,11 +19,11 @@ jobs:
       # - store_test_results:
       #      path : chapter02/src/karma-results
       # # chapter08 e2e tests
-      # - run: cd chapter08 && yarn install
-      # - run: cd chapter08 && yarn run webdriver-circle
-      # - run: cd chapter08 && yarn run e2e
-      # - store_test_results:
-      #    path : chapter08/protractor-results
+      - run: cd chapter08 && yarn install
+      - run: cd chapter08 && yarn run webdriver-circle
+      - run: cd chapter08 && yarn run e2e
+      - store_test_results:
+         path : chapter08/protractor-results
       # chapter09 e2e tests      
       - run: cd chapter09 && yarn install
       - run: cd chapter09 && yarn run webdriver-circle
