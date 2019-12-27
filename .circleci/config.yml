@@ -30,21 +30,25 @@ jobs:
       - run: cd chapter09 && xvfb-run -a yarn run e2e
       - store_test_results:
          path : chapter09/protractor-results
-      # # chapter10/test_capabilities e2e tests
+      # chapter10/test_capabilities e2e tests
       - run: cd chapter10/test_capabilities && yarn install
       - run: cd chapter10/test_capabilities && yarn run webdriver-circle
       - run: cd chapter10/test_capabilities && yarn run e2e protractor.conf.js
       - store_test_results:
          path : chapter10/test_capabilities/protractor-results
+      # chapter10/test_multicapabilities e2e tests         
       - run: cd chapter10/test_multicapabilities && yarn install
       - run: cd chapter10/test_multicapabilities && yarn run webdriver-circle
       - run: cd chapter10/test_multicapabilities && yarn run e2e protractor-chrome.conf.js
       - store_test_results:
          path : chapter10/test_capabilities/protractor-results
-      # # - run: cd chapter10/test_plugins && yarn install
-      # # - run: cd chapter10/test_plugins && yarn run webdriver-circle
-      # # - run: cd chapter10/test_plugins && yarn run e2e protractor-onprepare-method.conf.js
-      # # - run: cd chapter10/test_plugins && yarn run e2e protractor-onprepare-plugin.conf.js
+      # chapter10/test_plugins e2e tests                  
+      - run: cd chapter10/test_plugins && yarn install
+      - run: cd chapter10/test_plugins && yarn run webdriver-circle
+      - run: cd chapter10/test_plugins && yarn run e2e protractor-onprepare-method.conf.js
+      - run: cd chapter10/test_plugins && yarn run e2e protractor-onprepare-plugin.conf.js
+      - store_test_results:
+         path : chapter10/test_capabilities/protractor-results
       # chapter11 unit tests by running a bash script
       - run: cd chapter11 && ./run_unit_ci.sh
       - store_test_results:
