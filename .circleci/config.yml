@@ -8,16 +8,16 @@ jobs:
     steps:
       - checkout
       # print out versions
-      # - run: export IS_CIRCLE=true # scoped to run, so this is useless
+      # - run: export IS_CIRCLE=true is scoped to this run only, so this is useless
       - run: node --version
       - run: npm --version
       - run: yarn --version
       - run: google-chrome --version
       # # chapter02 unit tests
-      # - run: cd chapter02 && yarn install
-      # - run: cd chapter02 && yarn run citest
-      # - store_test_results:
-      #      path : chapter02/src/karma-results
+      - run: cd chapter02 && yarn install
+      - run: cd chapter02 && yarn run citest
+      - store_test_results:
+           path : chapter02/src/karma-results
       # # chapter08 e2e tests
       - run: cd chapter08 && yarn install
       - run: cd chapter08 && yarn run webdriver-circle

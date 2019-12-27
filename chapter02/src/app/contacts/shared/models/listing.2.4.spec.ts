@@ -1,6 +1,6 @@
 import ContactClass from './contact';
 
-describe('ContactClass tests', () => {
+describe('ContactClass listing 2.4 tests', () => {
   let contact: ContactClass = null;
 
   beforeEach(() => {
@@ -11,18 +11,8 @@ describe('ContactClass tests', () => {
     expect(contact).not.toBeNull();
   });
 
-  it('should set name properly through constructor', () => {
+  it('should set name correctly through constructor', () => {
     contact = new ContactClass('Liz');
-    expect(contact.name).toEqual('Liz');
-  });
-
-  it('should get and set id correctly', () => {
-    contact.id = 1;
-    expect(contact.id).toEqual(1);
-  });
-
-  it('should get and set name correctly', () => {
-    contact.name = 'Liz';
     expect(contact.name).toEqual('Liz');
   });
 

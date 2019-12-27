@@ -1,6 +1,6 @@
 import ContactClass from './contact';
 
-describe('ContactClass tests', () => {
+describe('ContactClass listing 2.6 tests', () => {
   let contact: ContactClass = null;
 
   beforeEach(() => {
