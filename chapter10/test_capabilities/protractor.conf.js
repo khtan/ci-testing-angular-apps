@@ -13,8 +13,8 @@ exports.config = {
   onPrepare: () => {
       let jasmineReporters = require('jasmine-reporters');
       let junitReporter = new jasmineReporters.JUnitXmlReporter({
-        // setup the output path for the junit reports
-        savePath: 'protractor-results/ch10e2e/',
+        // setup the output path for the junit reports, <>tc for test_capabilities
+        savePath: 'protractor-results/ch10tc/',
         consolidateAll: true
       });
       jasmine.getEnv().addReporter(junitReporter);

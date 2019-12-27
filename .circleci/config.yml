@@ -36,9 +36,11 @@ jobs:
       - run: cd chapter10/test_capabilities && yarn run e2e protractor.conf.js
       - store_test_results:
          path : chapter10/test_capabilities/protractor-results
-      # # - run: cd chapter10/test_multicapabilities && yarn install
-      # # - run: cd chapter10/test_multicapabilities && yarn run webdriver-circle
-      # # - run: cd chapter10/test_multicapabilities && yarn run e2e protractor-chrome.conf.js
+      - run: cd chapter10/test_multicapabilities && yarn install
+      - run: cd chapter10/test_multicapabilities && yarn run webdriver-circle
+      - run: cd chapter10/test_multicapabilities && yarn run e2e protractor-chrome.conf.js
+      - store_test_results:
+         path : chapter10/test_capabilities/protractor-results
       # # - run: cd chapter10/test_plugins && yarn install
       # # - run: cd chapter10/test_plugins && yarn run webdriver-circle
       # # - run: cd chapter10/test_plugins && yarn run e2e protractor-onprepare-method.conf.js
