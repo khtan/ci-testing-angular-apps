@@ -2,7 +2,8 @@ exports.config = {
   directConnect: process.env.DIRECT_CONNECT,
   seleniumAddress: process.env.SELENIUM_ADDRESS,
   capabilities: {
-    browserName: (process.env.BROWSER_NAME || 'chrome')
+     browserName: (process.env.BROWSER_NAME || 'chrome'),
+     chromeOptions: { args: ['--headless', '--disable-gpu']}
   },
   baseUrl: 'https://testing-angular-applications.github.io',
   specs: ['e2e/**/*.e2e-spec.ts'],
@@ -11,8 +12,8 @@ exports.config = {
       let jasmineReporters = require('jasmine-reporters');
       let junitReporter = new jasmineReporters.JUnitXmlReporter({
 
-        // setup the output path for the junit reports
-        savePath: 'output/',
+        // setup the output path for the junit reports, <>tenv for test_environment
+        savePath: 'protractor-results/ch10tenv/',
 
         // conslidate all true:
         //   output/junitresults.xml
@@ -20,8 +21,7 @@ exports.config = {
         // conslidate all set to false:
         //   output/junitresults-example1.xml
         //   output/junitresults-example2.xml
-        consolidateAll: false
-
+        consolidateAll: true
       });
       jasmine.getEnv().addReporter(junitReporter);
     }
