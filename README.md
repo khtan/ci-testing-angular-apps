@@ -1,6 +1,6 @@
-[![CircleCI Status](https://circleci.com/gh/testing-angular-applications/testing-angular-applications.svg?style=shield)](https://circleci.com/gh/testing-angular-applications/testing-angular-applications)
+[![CircleCI Status](https://circleci.com/gh/khtan/khtan.svg?style=shield)](https://circleci.com/gh/khtan/ci-testing-angular-apps)
 
-# [Testing Angular Applications](https://www.manning.com/books/testing-angular-applications)
+# [Temporary Fork for Testing Angular Applications](https://www.manning.com/books/testing-angular-applications)
 
 Jesse Palmer, Corinna Cohn, Michael Giambalvo, Craig Nishina
 
@@ -8,6 +8,23 @@ Jesse Palmer, Corinna Cohn, Michael Giambalvo, Craig Nishina
 
 <img src="https://images.manning.com/270/360/resize/book/4/e4907e3-04ec-4790-986b-b6a7cb949517/Palmer-TAA-MEAP.png" alt="Manning Testing Angular Applications">
 
-The Angular framework is great for building large-scale web applications that can be maintained and extended. And when you're building enterprise-level apps, testing is vital to the development process. Testing improves the quality of code and reduces maintenance, saving both time and money. Even though testing is crucial, it's sometimes neglected since there are few established resources and standards when it comes to modern JavaScript web applications. Developers who know how to build and leverage tests are highly valued by their clients and companies.
+# Introduction and reason for fork
+Section 11.2 of "Testing Angular Applications" is a small section that introduced CircleCI as the CICD automation
+platform framework. However the .circleci/config.yml had some problems and did not work for me.
 
-[Testing Angular Applications](https://www.manning.com/books/testing-angular-applications) is an example-rich, hands-on guide that gives you the real-world techniques you need to thoroughly test all parts of your Angular applications. You'll start with an introduction to Angular, TypeScript, testing fundamentals, and the testing frameworks and tools used in the book and begin writing your first tests. Next, you'll learn how to set-up your Angular environment, including TypeScript and the Angular dependencies and you'll create your first component. The second part of the book focuses on the most important concepts of Angular, such as testing components, directives, pipes, services, and routing. By the end of this book, you'll be able to confidently write unit and end-to-end tests for Angular applications in TypeScript.
+This fork contains all the fixes I made so that I could have a working CircleCI.
+#  Goals
+  1. Get CircleCI working for Testing Angular Application testcases using Linux docker machines
+  2. Get CircleCI working for Testing Angular Application testcases using Windows VM machines
+
+# Summary of changes
+I have followed the following guidelines so that it is easier to fold the changes back to the original project.
+
+1. Make no changes to the source code
+2. Only update the configuration files in order to support CircleCI better
+   a. Standardize the outputs for unit tests ( karma-results ) and e2e tests ( protractor-results )
+   b. Add a chapter folder in the output so that CircleCI can identify which tests come from which folders
+   c. Use junit-reporter for CircleCI test parsing
+   d. Continued use of yarn in .circleci/config.yml ( instead of npm )
+
+
