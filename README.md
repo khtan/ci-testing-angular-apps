@@ -45,9 +45,9 @@ with popular dependencies.
 Since Windows also support Docker, I am waiting for CircleCI to make available Windows Docker machines with Windows Subsystem for Linux (WSL). When that happens, the same CircleCI configuration should work for both Linux and Windows, provided I keep the code to the bash commonality between the two.
 
 # References
-Testing Angular Application's github : https://github.com/testing-angular-applications/testing-angular-applications
-My forked github :                  https://github.com/khtan/ci-testing-angular-apps
-My CircleCI project :               https://circleci.com/gh/khtan
+- Testing Angular Application's github : https://github.com/testing-angular-applications/testing-angular-applications
+- My forked github :                  https://github.com/khtan/ci-testing-angular-apps
+- My CircleCI project :               https://circleci.com/gh/khtan
 
 
 
