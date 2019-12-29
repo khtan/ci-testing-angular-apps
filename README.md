@@ -13,9 +13,11 @@ Section 11.2 of "Testing Angular Applications" is a small section that introduce
 platform framework. However the .circleci/config.yml had some problems and did not work for me.
 
 This fork contains all the fixes I made so that I could have a working CircleCI.
+
+In time, I hope to get the changes folded back to the original project.
 #  Goals
-  1. Get CircleCI working for Testing Angular Application testcases using Linux docker machines
-  2. Get CircleCI working for Testing Angular Application testcases using Windows VM machines
+  - [x] Get CircleCI working for Testing Angular Application testcases using Linux docker machines
+  - [ ] Get CircleCI working for Testing Angular Application testcases using Windows VM machines
 
 # Summary of changes
 I have followed the following guidelines so that it is easier to fold the changes back to the original project.
@@ -26,5 +28,26 @@ I have followed the following guidelines so that it is easier to fold the change
    2. Add a chapter folder in the output so that CircleCI can identify which tests come from which folders
    3. Use junit-reporter for CircleCI test parsing
    4. Continued use of yarn in .circleci/config.yml ( instead of npm )
+
+# Other problems not fixed
+  e2e tests failed for chapter10/test_screenshot and chapter10/test_experimental. 
+  I have just skipped over them and did not dig deeper.
+
+# CircleCI details
+I am using the free memebership of Cloud-based CircleCI. The advertised features are :
+   - 2500 free credits/week
+   - Run 1 job at a time
+   - Build on Linux and Windows
+
+The Linux machines are provided as Docker images while the Windows machines are provisioned as virutual Windows Server 2019,
+with popular dependencies.
+
+Since Windows also support Docker, I am waiting for CircleCI to make available Windows Docker machines with Windows Subsystem for Linux (WSL). When that happens, the same CircleCI configuration should work for both Linux and Windows, provided I keep the code to the bash commonality between the two.
+
+# References
+Testing Angular Application's github : https://github.com/testing-angular-applications/testing-angular-applications
+My forked github :                  https://github.com/khtan/ci-testing-angular-apps
+My CircleCI project :               https://circleci.com/gh/khtan
+
 
 
