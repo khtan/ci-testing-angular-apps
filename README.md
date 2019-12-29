@@ -20,11 +20,11 @@ This fork contains all the fixes I made so that I could have a working CircleCI.
 # Summary of changes
 I have followed the following guidelines so that it is easier to fold the changes back to the original project.
 
-1. Make no changes to the source code
-2. Only update the configuration files in order to support CircleCI better
-   a. Standardize the outputs for unit tests ( karma-results ) and e2e tests ( protractor-results )
-   b. Add a chapter folder in the output so that CircleCI can identify which tests come from which folders
-   c. Use junit-reporter for CircleCI test parsing
-   d. Continued use of yarn in .circleci/config.yml ( instead of npm )
+- Make no changes to the source code
+- Only update the configuration files in order to support CircleCI better
+   1. Standardize the outputs for unit tests ( karma-results ) and e2e tests ( protractor-results )
+   2. Add a chapter folder in the output so that CircleCI can identify which tests come from which folders
+   3. Use junit-reporter for CircleCI test parsing
+   4. Continued use of yarn in .circleci/config.yml ( instead of npm )
 
 
