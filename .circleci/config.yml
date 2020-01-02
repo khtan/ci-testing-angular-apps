@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 orbs:
    win: circleci/windows@1.0.0
 jobs:
@@ -71,7 +71,7 @@ jobs:
       - store_test_results:
          path : chapter11/protractor-results
    # windows section
-   buildtest_windows:
+  buildtest_windows:
       executor: win/vs2019
       environment:
         IS_CIRCLE: true
@@ -138,8 +138,8 @@ jobs:
       - store_test_results:
          path : chapter11/protractor-results
 workflows: # run 2 jobs sequentially
-    version: 2.1
-    build_all_platforms:
-        jobs:
-           - buildtest_linux
-           - buildtest_windows
+  version: 2.1
+  build_all_platforms:
+     jobs:
+        - buildtest_linux
+        - buildtest_windows
