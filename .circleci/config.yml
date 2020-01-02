@@ -84,8 +84,8 @@ jobs:
       - run: yarn --version
       # - run: google-chrome --version -- does not work for Windows
       # # chapter02 unit tests
-      - run: cd chapter02 && yarn install
-      - run: cd chapter02 && yarn run citest
+      - run: bash cd chapter02 && yarn install
+      - run: bash cd chapter02 && yarn run citest
       - store_test_results:
            path : chapter02/src/karma-results
       # # chapter08 e2e tests
