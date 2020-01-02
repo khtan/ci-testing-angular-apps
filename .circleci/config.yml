@@ -82,7 +82,7 @@ jobs:
       - run: node --version
       - run: npm --version
       - run: yarn --version
-      - run: google-chrome --version
+      # - run: google-chrome --version -- does not work for Windows
       # # chapter02 unit tests
       - run: cd chapter02 && yarn install
       - run: cd chapter02 && yarn run citest
