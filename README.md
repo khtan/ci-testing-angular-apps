@@ -39,8 +39,8 @@ I am using the free memebership of Cloud-based CircleCI. The advertised features
    - Run 1 job at a time
    - Build on Linux and Windows
 
-The Linux machines are provided as Docker images while the Windows machines are provisioned as virutual Windows Server 2019,
-with popular dependencies.
+The Linux machines are provided as Docker images while the Windows machines are provisioned as virtual Windows Server 2019,
+with Visual Studio 2019.
 
 Since Windows also support Docker, I am waiting for CircleCI to make available Windows Docker machines with Windows Subsystem for Linux (WSL). When that happens, the same CircleCI configuration should work for both Linux and Windows, provided I keep the code to the bash commonality between the two.
 

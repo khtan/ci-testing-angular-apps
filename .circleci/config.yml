@@ -1,6 +1,9 @@
 version: 2
+orbs:
+   win: circleci/windows@1.0.0
 jobs:
-  build:
+# Make sure selected unit and e2e tests run successfully on both Linux and Windows
+  buildtest_linux:
     docker:
       - image: circleci/node:8-browsers
     environment:
@@ -67,4 +70,76 @@ jobs:
       - run: cd chapter11 && yarn run e2e
       - store_test_results:
          path : chapter11/protractor-results
-
+   # windows section
+   buildtest_windows:
+      executor: win/vs2019
+      environment:
+        IS_CIRCLE: true
+      steps:
+      - checkout
+      # print out versions
+      # - run: export IS_CIRCLE=true is scoped to this run only, so this is useless
+      - run: node --version
+      - run: npm --version
+      - run: yarn --version
+      - run: google-chrome --version
+      # # chapter02 unit tests
+      - run: cd chapter02 && yarn install
+      - run: cd chapter02 && yarn run citest
+      - store_test_results:
+           path : chapter02/src/karma-results
+      # # chapter08 e2e tests
+      - run: cd chapter08 && yarn install
+      - run: cd chapter08 && yarn run webdriver-circle
+      - run: cd chapter08 && yarn run e2e
+      - store_test_results:
+         path : chapter08/protractor-results
+      # chapter09 e2e tests      
+      - run: cd chapter09 && yarn install
+      - run: cd chapter09 && yarn run webdriver-circle
+      - run: cd chapter09 && yarn run e2e
+      - store_test_results:
+         path : chapter09/protractor-results
+      # chapter10/test_capabilities e2e tests
+      - run: cd chapter10/test_capabilities && yarn install
+      - run: cd chapter10/test_capabilities && yarn run webdriver-circle
+      - run: cd chapter10/test_capabilities && yarn run e2e protractor.conf.js
+      - store_test_results:
+         path : chapter10/test_capabilities/protractor-results
+      # chapter10/test_multicapabilities e2e tests         
+      - run: cd chapter10/test_multicapabilities && yarn install
+      - run: cd chapter10/test_multicapabilities && yarn run webdriver-circle
+      - run: cd chapter10/test_multicapabilities && yarn run e2e protractor-chrome.conf.js
+      - store_test_results:
+         path : chapter10/test_capabilities/protractor-results
+      # chapter10/test_plugins e2e tests                  
+      - run: cd chapter10/test_plugins && yarn install
+      - run: cd chapter10/test_plugins && yarn run webdriver-circle
+      - run: cd chapter10/test_plugins && yarn run e2e protractor-onprepare-method.conf.js
+      - run: cd chapter10/test_plugins && yarn run e2e protractor-onprepare-plugin.conf.js
+      - store_test_results:
+         path : chapter10/test_capabilities/protractor-results
+      # chapter10/test_environment e2e tests
+      # use of source env_chrome requires Linux test machine
+      # env_firefox is not tested
+      - run: cd chapter10/test_environment && yarn install
+      - run: cd chapter10/test_environment && yarn run webdriver-circle
+      - run: cd chapter10/test_environment && source env_chrome && yarn run e2e
+      - store_test_results:
+         path : chapter10/test_environment/protractor-results
+      # chapter11 unit tests by running a bash script, skip for Windows until WSL available
+      # - run: cd chapter11 && ./run_unit_ci.sh
+      # - store_test_results:
+      #      path : website/karma-results
+      # chapter11 all e2e tests
+      - run: cd chapter11 && yarn install
+      - run: cd chapter11 && yarn run webdriver-circle
+      - run: cd chapter11 && yarn run e2e
+      - store_test_results:
+         path : chapter11/protractor-results
+workflows: # run 2 jobs sequentially
+    version: 2.1
+    build_all_platforms:
+        jobs:
+           - buildtest_linux
+           - buildtest_windows
