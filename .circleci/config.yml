@@ -17,10 +17,10 @@ jobs:
       - run: yarn --version
       - run: google-chrome --version
       # # chapter02 unit tests
-      - run: cd chapter02 && yarn install
-      - run: cd chapter02 && yarn run citest
-      - store_test_results:
-           path : chapter02/src/karma-results
+      # - run: cd chapter02 && yarn install
+      # - run: cd chapter02 && yarn run citest
+      #- store_test_results:
+      #     path : chapter02/src/karma-results
       # # chapter08 e2e tests
       - run: cd chapter08 && yarn install
       - run: cd chapter08 && yarn run webdriver-circle
@@ -139,11 +139,13 @@ jobs:
       - run: cd chapter11 && yarn run e2e
       - store_test_results:
          path : chapter11/protractor-results
-workflows: # run windows after linux sequentially
+workflows: # run windows before linux sequentially
   version: 2.1
   build_all_platforms:
      jobs:
-        - buildtest_linux
-        - buildtest_windows:
+       - buildtest_windows
+       - buildtest_linux:
            requires:
-             - buildtest_linux
+             - buildtest_windows
+
+
