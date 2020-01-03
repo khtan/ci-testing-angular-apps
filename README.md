@@ -17,7 +17,10 @@ This fork contains all the fixes I made so that I could have a working CircleCI.
 In time, I hope to get the changes folded back to the original project.
 #  Goals
   - [x] Get CircleCI working for Testing Angular Application testcases using Linux docker machines
-  - [ ] Get CircleCI working for Testing Angular Application testcases using Windows VM machines
+  - [ ] (partial) Get CircleCI working for Testing Angular Application testcases using Windows VM machines
+     1. Windows VM can run bash
+     2. Windows VM does not have Chrome installed, and hence Karma and Protractor runs fail.
+        See https://ideas.circleci.com/ideas/CCI-I-1311
 
 # Summary of changes
 I have followed the following guidelines so that it is easier to fold the changes back to the original project.
