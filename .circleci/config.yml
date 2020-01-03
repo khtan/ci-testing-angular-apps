@@ -144,6 +144,6 @@ workflows: # run windows after linux sequentially
   build_all_platforms:
      jobs:
         - buildtest_linux
-        - buildtest_windows
+        - buildtest_windows:
            requires:
              - buildtest_linux
