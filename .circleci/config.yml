@@ -16,12 +16,12 @@ jobs:
       - run: npm --version
       - run: yarn --version
       - run: google-chrome --version
-      # # chapter02 unit tests
-      # - run: cd chapter02 && yarn install
-      # - run: cd chapter02 && yarn run citest
-      #- store_test_results:
-      #     path : chapter02/src/karma-results
-      # # chapter08 e2e tests
+      # chapter02 unit tests
+      - run: cd chapter02 && yarn install
+      - run: cd chapter02 && yarn run citest
+      - store_test_results:
+          path : chapter02/src/karma-results
+      # chapter08 e2e tests
       - run: cd chapter08 && yarn install
       - run: cd chapter08 && yarn run webdriver-circle
       - run: cd chapter08 && yarn run e2e
@@ -86,10 +86,10 @@ jobs:
       - run: yarn --version
       # - run: google-chrome --version -- does not work for Windows
       # # chapter02 unit tests
-      - run: cd chapter02 && yarn install
-      - run: cd chapter02 && yarn run citest
-      - store_test_results:
-           path : chapter02/src/karma-results
+      # - run: cd chapter02 && yarn install
+      # - run: cd chapter02 && yarn run citest
+      # - store_test_results:
+      #      path : chapter02/src/karma-results
       # # chapter08 e2e tests
       - run: cd chapter08 && yarn install
       - run: cd chapter08 && yarn run webdriver-circle
