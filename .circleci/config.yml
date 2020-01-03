@@ -139,9 +139,11 @@ jobs:
       - run: cd chapter11 && yarn run e2e
       - store_test_results:
          path : chapter11/protractor-results
-workflows: # run 2 jobs sequentially
+workflows: # run windows after linux sequentially
   version: 2.1
   build_all_platforms:
      jobs:
         - buildtest_linux
         - buildtest_windows
+           requires:
+             - buildtest_linux
