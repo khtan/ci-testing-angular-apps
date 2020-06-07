@@ -1,4 +1,4 @@
-[![CircleCI Status](https://circleci.com/gh/khtan/khtan.svg?style=shield)](https://circleci.com/gh/khtan/ci-testing-angular-apps)
+[![CircleCI Status](https://circleci.com/gh/khtan/ci-testing-angular-apps.svg?style=shield)](https://circleci.com/gh/khtan/ci-testing-angular-apps)
 
 # [Temporary Fork for Testing Angular Applications](https://www.manning.com/books/testing-angular-applications)
 
