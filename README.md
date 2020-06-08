@@ -15,13 +15,15 @@ platform framework. However the .circleci/config.yml had some problems and did n
 This fork contains all the fixes I made so that I could have a working CircleCI.
 
 In time, I hope to get the changes folded back to the original project.
-#  Goals
-  - [x] Get CircleCI working for Testing Angular Application testcases using Linux docker machines
-  - [ ] (partial) Get CircleCI working for Testing Angular Application testcases using Windows VM machines
-     1. Windows VM can run bash
-     2. Windows VM does not have Chrome installed, and hence Karma and Protractor runs fail.
+# Tasks
+  - [X] Get CircleCI working for Testing Angular Application testcases using Linux docker machines
+  - [X] Implement job buildtest_linux to run all tests on Linux. All tests now pass.
+  - [X] Implement job structure for buildtest_windows to run all tests on Windows VM
+        This includes using git bash to keep the yaml code simple and similar to Linux.
+  - [X] Windows VM does not have Chrome installed, and hence Karma and Protractor runs fail and have been disabled.
+        This means a pass in this job currently just checks that the builds are working.
         See https://ideas.circleci.com/ideas/CCI-I-1311
-
+  - [ ] Figure out how to add Chrome to Windows to complete Windows tests
 # Summary of changes
 I have followed the following guidelines so that it is easier to fold the changes back to the original project.
 
@@ -42,15 +44,14 @@ I am using the free memebership of Cloud-based CircleCI. The advertised features
    - Run 1 job at a time
    - Build on Linux and Windows
 
-The Linux machines are provided as Docker images while the Windows machines are provisioned as virtual Windows Server 2019,
-with Visual Studio 2019.
+The Linux machines are provided as Docker images while the Windows machines are provisioned as virtual Windows Server 2019, with Visual Studio 2019.
 
 Since Windows also support Docker, I am waiting for CircleCI to make available Windows Docker machines with Windows Subsystem for Linux (WSL). When that happens, the same CircleCI configuration should work for both Linux and Windows, provided I keep the code to the bash commonality between the two.
 
 # References
-- Testing Angular Application's github : https://github.com/testing-angular-applications/testing-angular-applications
-- My forked github :                  https://github.com/khtan/ci-testing-angular-apps
-- My CircleCI project :               https://circleci.com/gh/khtan
+- Book's github : https://github.com/testing-angular-applications/testing-angular-applications
+- This forked github :                https://github.com/khtan/ci-testing-angular-apps
+- My CircleCI project :               https://circleci.com/gh/khtan/ci-testing-angular-apps
 
 
 
